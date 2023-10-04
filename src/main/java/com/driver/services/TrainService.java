@@ -6,15 +6,15 @@ import com.driver.model.Passenger;
 import com.driver.model.Station;
 import com.driver.model.Ticket;
 import com.driver.model.Train;
-import java.util.HashMap;
 import com.driver.repository.TrainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.Objects;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class TrainService {
@@ -57,7 +57,6 @@ public class TrainService {
         //even if that seat is booked post the destStation or before the boardingStation
         //Inshort : a train has totalNo of seats and there are tickets from and to different locations
         //We need to find out the available seats between the given 2 stations.
-
         Train train=trainRepository.findById(seatAvailabilityEntryDto.getTrainId()).get();
         List<Ticket>ticketList=train.getBookedTickets();
         String []trainRoot=train.getRoute().split(",");
@@ -177,5 +176,4 @@ public class TrainService {
         }
         return TrainList;
     }
-
 }
